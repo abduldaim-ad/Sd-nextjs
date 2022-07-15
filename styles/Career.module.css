@@ -1,0 +1,54 @@
+.careerHeader {
+    height: 500px;
+    width: 100%;
+    background-image: url("../public/images/career/careerHeaderImg.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: darken;
+    filter: drop-shadow(0 0 0 black);
+}
+
+.textLarge {
+    font-weight: 700;
+    font-size: 3.75rem;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.vacancyWrap {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 0.625rem;
+}
+
+.coreWrap {
+    border-radius: 0.625rem;
+}
+
+.bgLightGrey {
+    background-color: var(--smoke-white);
+}
+
+.vacancyTitle {
+    color: var(--logo-red);
+    letter-spacing: 1.3px;
+    font-weight: 700;
+}
+
+.colorRed {
+    color: var(--logo-red);
+}
+
+.applyBtn {
+    background-color: var(--logo-red);
+    color: white;
+    border: none;
+    padding: 0.625rem 2.18rem;
+    border-radius: 0.31rem;
+}
+@media only screen and (max-width: 600px) {
+    .textLarge {
+        font-size: 2.25rem;
+    }
+  }
+

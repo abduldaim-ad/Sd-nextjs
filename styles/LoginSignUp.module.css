@@ -1,0 +1,23 @@
+
+
+.inputStyles {
+    border: 1px solid white;
+    border-bottom: 1px solid var(--logo-red);
+    width: 15rem;
+}
+
+.inputStyles:focus {
+    border: 1px solid var(--logo-red);
+    outline: none;
+    box-shadow: none !important;
+}
+
+.anchorTagStyles{
+    color: var(--logo-red);
+    text-decoration: none;
+}
+.anchorTagStyles:hover{
+    color: var(--logo-red);
+    text-decoration: underline;
+}
+

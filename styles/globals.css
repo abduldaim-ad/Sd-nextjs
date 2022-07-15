@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100&family=Inria+Serif&display=swap');
+
+
+
+@import url("./Features-Cards.css");
+@import url("./home.css");
+@import url("./belowNav.css");
+@import url("./navbar.css");
+
+:root {
+  --light-grey: #f3f5f8;
+  --logo-red: #E71B1E;
+  --navbar-bg: #E6E6E6;
+  --smoke-white: #f5f5f5;
+  --grey-white: #D9D9D9;
+  --text-grey: #8b8a8a;
+  --dark-grey: #545454;
+  --almost-black: #292929;
+  --green: #5dc560;
+  --orange-shade: #eaae53;
+  --red-shade: #ea5395;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box !important;
+  scroll-behavior: smooth !important;
+  font-family: 'Inria Serif', serif;
+}
+
+p,
+h3,
+h1,
+ul {
+  margin-bottom: 0 !important;
+}
+
+textarea {
+  resize: none !important; 
+}
+
+.typingWrap {
+  display: inline-block;
+}
+
+.typed-out {
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 1s steps(20, end) forwards;
+  font-size: 1.6rem;
+  width: 0;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.paddLeftZero {
+  padding-left: 0px !important;
+}
+
+/* password strength styles */
+.strengthLabel {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.strengthPercent {
+  flex: 1;
+  height: 5px;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  background-color: white;
+}
+
+.strengthPercent span {
+  display: block;
+  height: 100%;
+  transition: all 0.4s;
+  border-radius: 10px;
+}
+
+.weak {
+  background-color: red;
+  width: 33%;
+}
+
+.average {
+  background-color: #ffd000;
+  width: 66%;
+}
+
+.strong {
+  background-color: green;
+  width: 100%;
+}
+
+.activeSidebar {
+  left: 0 !important;
+}
+
+.smokeWhite {
+  background-color: var(--light-grey);
+  height: 100vh;
+}

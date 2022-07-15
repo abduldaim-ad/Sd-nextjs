@@ -1,0 +1,118 @@
+#logo {
+    width: 20%;
+    height: 80%;
+    float: left;
+    position: relative;
+    top: -10px;
+}
+
+@media screen and (max-width: 600px) {
+    #nav-list {
+        min-height: 80px;
+    }
+
+    .nav-div ul li a Button {
+        display: none;
+    }
+
+    .nav-div ul li a.menu-icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav-div.responsive ul li a Button {
+        color: var(--smoke-white);
+        text-decoration: none;
+        background-color: var(--logo-red) !important;
+        text-transform: capitalize;
+        font-weight: bold;
+        display: block;
+        width: 200px;
+    }
+
+    .nav-div.responsive ul li a img {
+        display: none;
+    }
+
+    .nav-div.responsive .menu-icon {
+        position: absolute;
+        right: 0;
+        top: 16px;
+    }
+
+    .nav-div.responsive ul li {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .nav-div.responsive ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+#nav-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: var(--navbar-bg);
+    padding: 3vh 0 0vh 0;
+    margin-bottom: 0 !important;
+}
+
+#nav-list li a {
+    text-decoration: none;
+    float: left;
+    text-align: center;
+    padding: 7px 16px;
+    font-size: 17px;
+}
+
+#nav-list li a Button {
+    color: var(--smoke-white);
+    text-decoration: none;
+    background-color: var(--logo-red) !important;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-shadow: 2px 1px 10px #5c5b5b;
+}
+
+.nav-div {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+.nav-div .menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.materialUiButton{
+    color: var(--smoke-white);
+    text-decoration: none;
+    background-color: var(--logo-red) !important;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-shadow: 2px 1px 10px #5c5b5b;
+}
+
+.materialUiGreenButton{
+    color: var(--smoke-white);
+    text-decoration: none;
+    background-color: var(--green) !important;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-shadow: 2px 1px 10px #5c5b5b;
+}
+
+.buttonEffects {
+    background: transparent;
+    border: none;
+}

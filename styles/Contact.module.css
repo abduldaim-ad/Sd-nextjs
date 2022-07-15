@@ -1,0 +1,54 @@
+.contactFormYAxis {
+    position: relative;
+    top: -115px;
+}
+
+.contactAddressWrap {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.marginLeft {
+    margin-left: 30px;
+}
+
+.messageBtn {
+    background-color: var(--logo-red);
+    color: white;
+    border: none;
+    padding: 0.625rem 2.18rem;
+    border-radius: 0.31rem;
+}
+
+.emailStyles {
+    color: black;
+    text-decoration: none;
+}
+
+.emailStyles:hover {
+    color: var(--logo-red);
+}
+
+.inputStyles {
+    border: 1px solid white;
+    border-bottom: 1px solid var(--logo-red);
+    width: 15rem;
+}
+
+.inputStyles:focus {
+    border: 1px solid var(--logo-red);
+    outline: none;
+}
+
+.colorRed {
+    color: var(--logo-red);
+}
+
+.headerBackImage {
+    background-image: url("../public/images/contact/contactus.jpg");
+    background-repeat: repeat;
+    background-position: top;
+    background-size: cover;
+    height: 500px;
+    mix-blend-mode: darken;
+    filter: drop-shadow(0 0 0 black);
+}
