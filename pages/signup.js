@@ -14,6 +14,9 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
+  const [emailValid,setEmailValid] = useState(false);
+  const [nameValid,setNameValid] = useState(false);
+  const [passValid,setPassValid] = useState(false);
   const router = useRouter()
 
   const fullNameReg = /^[a-zA-Z]/;
@@ -29,9 +32,11 @@ export default function Signup() {
     if (emailReg.test(email)) {
       x.classList.remove("is-invalid");
       x.classList.add("is-valid");
+      setEmailValid(true);
     } else {
       x.classList.remove("is-valid");
       x.classList.add("is-invalid");
+      setEmailValid(false);
     }
   };
 
@@ -40,9 +45,11 @@ export default function Signup() {
     if (fullNameReg.test(fullName) && fullName !== "") {
       nameIn.classList.remove("is-invalid");
       nameIn.classList.add("is-valid");
+      setNameValid(true);
     } else {
       nameIn.classList.remove("is-valid");
       nameIn.classList.add("is-invalid");
+      setNameValid(false);
     }
   };
 
@@ -85,11 +92,13 @@ export default function Signup() {
       x.classList.add("is-valid");
       y.classList.remove("is-invalid");
       y.classList.add("is-valid");
+      setPassValid(true);
     } else {
       x.classList.remove("is-valid");
       x.classList.add("is-invalid");
       y.classList.remove("is-valid");
       y.classList.add("is-invalid");
+      setPassValid(false);
     }
   };
 
@@ -108,6 +117,8 @@ export default function Signup() {
 
 
   const SubmitSignUp = async (e) => {
+    console.log(`${emailValid} ${nameValid} ${passValid}`)
+    if(emailValid && nameValid && passValid){
     e.preventDefault()
     console.log(`email${email} and password ${password}`)
     const res=await fetch(`${baseUrl}/api/signup`,{
@@ -124,9 +135,14 @@ export default function Signup() {
     const res2 = await res.json()
     if(res2.error){
       console.log(`testing error`)
+      document.getElementById("invalid-Cred").innerHTML="User is Already Registered!"
     }else{
       console.log(`testing Success`)
       router.push('/login')
+    }
+    }
+    else{
+      document.getElementById("invalid-Cred").innerHTML="Invalid Data!"
     }
   }
 
@@ -273,6 +289,7 @@ export default function Signup() {
               >
                 Sign Up
               </Button>
+              <p id="invalid-Cred"></p>
             </form>
           </Col>
         </Row>

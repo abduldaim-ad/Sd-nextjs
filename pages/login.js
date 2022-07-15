@@ -5,14 +5,15 @@ import Link from "next/link";
 import Head from "next/head";
 import { useState, useRef } from "react";
 import { Image } from "react-bootstrap";
-import baseUrl from '../helpers/baseUrl';
-import cookie from 'js-cookie';
-import {useRouter} from 'next/router';
+import baseUrl from "../helpers/baseUrl";
+import cookie from "js-cookie";
+import { useRouter } from "next/router";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter()
+  const [emailValid, setEmailValid] = useState(false);
+  const router = useRouter();
 
   const emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
@@ -22,31 +23,37 @@ export default function Login() {
     if (emailReg.test(email)) {
       x.classList.remove("is-invalid");
       x.classList.add("is-valid");
+      setEmailValid(true);
     } else {
       x.classList.remove("is-valid");
       x.classList.add("is-invalid");
+      setEmailValid(false);
     }
-    console.log("Running")
-    e.preventDefault()
-    const res = await fetch(`${baseUrl}/api/login`,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        email,
-        password
-      })
-    })
-    const res2 = await res.json()
-    if(res2.error){
-      console.log(`${email} anddd ${password}`)
-      console.log(res)
-    }else{
-      console.log(res2)
-      cookie.set('token',res.token)
-      console.log("Login Successful!!!!!!!!!!!!")
-      router.push('/dashboard')
+    console.log("Running");
+    e.preventDefault();
+
+    if (emailValid) {
+      const res = await fetch(`${baseUrl}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const res2 = await res.json();
+      if (res2.error) {
+        document.getElementById("invalid-Cred").innerHTML="Invalid Credentials!"
+        console.log(`${email} anddd ${password}`);
+        console.log(res);
+      } else {
+        console.log(res2);
+        cookie.set("token", res.token);
+        console.log("Login Successful!!!!!!!!!!!!");
+        router.push("/dashboard");
+      }
     }
   };
 
@@ -121,12 +128,11 @@ export default function Login() {
               <Button
                 variant="contained"
                 className="materialUiButton my-2 w-100 py-2"
-                onClick={
-                  (e)=>handleLogin(e)
-                }
+                onClick={(e) => handleLogin(e)}
               >
                 Login
               </Button>
+              <p id="invalid-Cred"></p>
             </form>
           </Col>
         </Row>
